@@ -36,7 +36,7 @@ class Dfa:
                 if tup not in self.Dfa_statelist and tup != () and self.is_numright(list(tup), self.Dfa_statelist)!=1:
                     self.Dfa_statelist.append(tup)
                     cnt_state += 1
-                    self.Dfa_stateflag[cnt_state] = 0;
+                    self.Dfa_stateflag[cnt_state] = 0
                     if N.accepted in tup and cnt_state not in ls_accepted: #判断 终结符与非终结符
                         ls_accepted.append(cnt_state)
                     elif cnt_state not in ls_notaccepted:
