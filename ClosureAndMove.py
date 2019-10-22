@@ -1,9 +1,8 @@
 '''
 实现NFA的Closure闭包运算及move运算以及获取NFA的列表，move列表
 '''
-
-from stack import Stack
-from retoNFA import *
+from firstwork_stack import Stack
+from firstwork_retoNFA import *
 class Nfa:
     def __init__(self, start,accepted,move):
         self.start = start

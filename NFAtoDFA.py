@@ -2,7 +2,7 @@
 从NFA到DFA
 '''
 from ClosureAndMove import *
-from retoNFA import  *
+from firstwork_retoNFA import  *
 
 class Dfa:
     def __init__(self,N,ls):

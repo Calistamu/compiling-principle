@@ -1,7 +1,6 @@
 '''
 用分割法最小化DFA
 '''
-
 from NFAtoDFA import *
 import operator
             

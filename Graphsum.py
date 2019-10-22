@@ -1,11 +1,12 @@
 '''
+
 用graphviz实现可视化
 '''
 from graphviz import Digraph
 
 from NFAtoDFA import *
 from DFAtoMDFA import *
-from retoNFA import * 
+from firstwork_retoNFA import * 
 
 
 def graph_Nfa(ls,end):
