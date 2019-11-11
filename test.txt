@@ -1,1 +1,0 @@
-E->TS S->+TS|ε T->FG G->*FG|ε F->(E)|i
