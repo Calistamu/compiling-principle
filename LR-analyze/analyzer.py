@@ -64,9 +64,9 @@ def get_v():
     print("得到终结符集合：" + str(VT))
     print("所有的符号集合" + str(Vs))
 
-
+# 为所有产生式加点
 def dot_gram():
-    # 为所有产生式加点
+  
     dot_grams.append("S'->.S")
     dot_grams.append("S'->S.")
 
@@ -82,9 +82,9 @@ def dot_gram():
 
 
 #------------构造DNF代码---------------------#
-
+# 返回非终结符产生的A->.aBb形式
 def get_VN_gram(v):
-    # 返回非终结符产生的A->.aBb形式
+   
     res = []
     for gram in dot_grams:
         ind = gram.find("->")
@@ -94,9 +94,8 @@ def get_VN_gram(v):
 
 # print(get_VN_gram("A"))
 
-
+# 生成闭包
 def get_CLOSURE(tmp):
-    # 生成闭包
     CLOSURE = []
     for it in tmp:
         if(it not in CLOSURE):
@@ -113,9 +112,8 @@ def get_CLOSURE(tmp):
 
     return CLOSURE
 
-
+#判断item是否已经存在, 存在返回位置，不存在返回-1
 def is_inItems(new_item):
-    #判断item是否已经存在, 存在返回位置，不存在返回-1
     if(new_item == None):
         return -1
 
@@ -129,8 +127,8 @@ def is_inItems(new_item):
 
     return -1
 
+#生成并返回下一个item
 def go(item, v):
-    #生成并返回下一个item
     tmp = []
     for it in item:
         x, y = it.split(".")
@@ -145,11 +143,9 @@ def go(item, v):
         #print("go(item, "+v + ") = " + str(new_item))
         return new_item
 
-
+#构建item的集合
+# 初始化,生成I0
 def get_items():
-    #构建item的集合
-
-    # 初始化,生成I0
     item = []
     init_s = "S'->.S"
     item.append(init_s)
@@ -182,6 +178,7 @@ def get_items():
 
 
 #---------------构造LR(0)表代码--------------#
+#初始化
 def init_lr_table():
 
     action_len = len(VT)
@@ -194,9 +191,9 @@ def init_lr_table():
         for w2 in range(len(VN)):
             GOTO[h].append("  ")
 
-
+# 判别lr是否合法
 def lr_is_legal():
-    # 判别lr是否合法
+    
     has_protocol = 0 #是否存在规约项目
     has_shift = 0 #是否存在移进项目
 
@@ -212,7 +209,7 @@ def lr_is_legal():
                     has_shift = 1
     return True
 
-
+# 根据'.'分割开
 def find_gram(it):
 
     x, y = it.split(".")
@@ -225,11 +222,11 @@ def find_gram(it):
 
 
 dot_gram()
-print(dot_grams[1])
-print(find_gram(dot_grams[1]))
+#print(dot_grams[1])
+#print(find_gram(dot_grams[1]))
 
+#构建lr分析表
 def get_lr_table():
-    #构建lr分析表
     init_lr_table()
     lr_is_legal()
     i=0
@@ -262,6 +259,8 @@ def get_lr_table():
 
 
 #-----------------规约------------------#
+
+#是否结束
 def is_end():
     if input_str[location:len(input_str)] == '#':
         if symbol_stack[-1] == 'S' and symbol_stack[-2] == '#':
@@ -286,9 +285,8 @@ def output():
 def count_right_num(grammar_i):
     return len(grammar_i) - 3
 
-
+# 根据LR(0)表进行规约
 def stipulations():
-    # 根据LR(0)表进行规约
 
     global location
     print('----分析过程----')
