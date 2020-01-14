@@ -1,0 +1,7 @@
+digraph MDFA {
+	1
+	1 -> 1 [label=a]
+	2
+	2 [shape=doublecircle]
+	2 -> 2 [label=b]
+}
